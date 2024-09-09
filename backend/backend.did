@@ -1,0 +1,18 @@
+type Result = 
+ variant {
+   err: text;
+   ok: text;
+ };
+type Book = 
+ record {
+   author: text;
+   id: nat;
+   rentedBy: opt principal;
+   title: text;
+ };
+service : {
+  addBook: (text, text) -> (nat);
+  getBooks: () -> (vec Book) query;
+  rentBook: (nat) -> (Result);
+  returnBook: (nat) -> (Result);
+}
